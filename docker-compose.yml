@@ -1,0 +1,17 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    tty: true
+    restart: always
+    stdin_open: true
+    ports:
+      - "45987:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: PAPER
+      ONLINE_MODE: FALSE
+      DIFFICULTY: hard
+      MEMORY: 2G
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./data:/data
